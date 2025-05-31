@@ -1,3 +1,8 @@
+<?php
+include_once __DIR__ . '../../config/config.php';
+
+?>
+
 <!DOCTYPE html>
 
 <html
@@ -5,7 +10,7 @@
     class="light-style layout-menu-fixed"
     dir="ltr"
     data-theme="theme-default"
-    data-assets-path="/safety-stock/assets/"
+    data-assets-path="<?= $base_url ?>/assets/"
     data-template="vertical-menu-template-free">
 
 <head>
@@ -19,8 +24,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <!-- <link rel="icon" type="image/x-icon" href="/safety-stock/assets/img/favicon/favicon.ico" /> -->
-    <link rel="icon" type="image/x-icon" href="/safety-stock/assets/img/Logo.png" />
+    <link rel="icon" type="image/x-icon" href="<?= $base_url ?>/assets/img/Logo.png" />
 
 
     <!-- Fonts -->
@@ -31,24 +35,24 @@
         rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="/safety-stock/assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?= $base_url ?>/assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="/safety-stock/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="/safety-stock/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="/safety-stock/assets/css/demo.css" />
+    <link rel="stylesheet" href="<?= $base_url ?>/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= $base_url ?>/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?= $base_url ?>/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="/safety-stock/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= $base_url ?>/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="/safety-stock/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="<?= $base_url ?>/assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="/safety-stock/assets/vendor/js/helpers.js"></script>
+    <script src="<?= $base_url ?>/assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="/safety-stock/assets/js/config.js"></script>
+    <script src="<?= $base_url ?>/assets/js/config.js"></script>
 </head>

@@ -16,9 +16,9 @@ function isActive($path)
     <div class="app-brand demo">
         <a href="index.html" class="app-brand-link">
             <div class="app-brand demo">
-                <a href="/safety-stock/index.php" class="app-brand-link">
+                <a href="<?= $base_url ?>/index.php" class="app-brand-link">
                     <span class="app-brand-logo demo">
-                        <img src="/safety-stock/assets/img/Logo.png" alt="Logo" width="50" height="50">
+                        <img src="<?= $base_url ?>/assets/img/Logo.png" alt="Logo" width="50" height="50">
                     </span>
                     <span class="menu-text fw-medium fs-6 ms-2">Inventory Management</span>
                 </a>
@@ -39,7 +39,7 @@ function isActive($path)
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
         <li class="menu-item <?= isActive('/index.php') ?>">
-            <a href="/safety-stock/index.php" class="menu-link">
+            <a href="<?= $base_url ?>/index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
@@ -59,27 +59,27 @@ function isActive($path)
 
             <ul class="menu-sub">
                 <li class="menu-item <?= isActive('/products') ?>">
-                    <a href="/safety-stock/modules/products/list.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/products/list.php" class="menu-link">
                         <div data-i18n="Without menu">Produk</div>
                     </a>
                 </li>
                 <li class="menu-item <?= isActive('/categories') ?>">
-                    <a href="/safety-stock/modules/categories/list.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/categories/list.php" class="menu-link">
                         <div data-i18n="Without navbar">Kategori</div>
                     </a>
                 </li>
                 <li class="menu-item <?= isActive('/units') ?>">
-                    <a href="/safety-stock/modules/units/list.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/units/list.php" class="menu-link">
                         <div data-i18n="Container">Satuan</div>
                     </a>
                 </li>
                 <li class="menu-item <?= isActive('/locations') ?>">
-                    <a href="/safety-stock/modules/locations/list.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/locations/list.php" class="menu-link">
                         <div data-i18n="Fluid">Lokasi</div>
                     </a>
                 </li>
                 <li class="menu-item <?= isActive('/supplier') ?>">
-                    <a href="/safety-stock/modules/supplier/list.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/supplier/list.php" class="menu-link">
                         <div data-i18n="Blank">Supplier</div>
                     </a>
                 </li>
@@ -88,19 +88,19 @@ function isActive($path)
         <!-- Components -->
 
         <li class="menu-item <?= isActive('/stock') ?>">
-            <a href="/safety-stock/modules/stock/list.php" class="menu-link">
+            <a href="<?= $base_url ?>/modules/stock/list.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Boxicons">Stock Barang</div>
             </a>
         </li>
         <li class="menu-item <?= isActive('/incoming') ?>">
-            <a href="/safety-stock/modules/incoming/list.php" class="menu-link">
+            <a href="<?= $base_url ?>/modules/incoming/list.php" class="menu-link">
                 <i class="menu-icon tf-icons bx  bx-log-in"></i>
                 <div data-i18n="Boxicons">Barang Masuk</div>
             </a>
         </li>
         <li class="menu-item <?= isActive('/outgoing') ?>">
-            <a href="/safety-stock/modules/outgoing/list.php" class="menu-link">
+            <a href="<?= $base_url ?>/modules/outgoing/list.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-log-out"></i>
                 <div data-i18n="Boxicons">Barang Keluar</div>
             </a>
@@ -116,22 +116,22 @@ function isActive($path)
 
             <ul class="menu-sub">
                 <li class="menu-item <?= isActive('/reports/stock.php') ?>">
-                    <a href="/safety-stock/modules/reports/stock.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/reports/stock.php" class="menu-link">
                         <div data-i18n="Without menu">Stok Barang</div>
                     </a>
                 </li>
                 <li class="menu-item <?= isActive('/reports/incoming.php') ?>">
-                    <a href="/safety-stock/modules/reports/incoming.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/reports/incoming.php" class="menu-link">
                         <div data-i18n="Without navbar">Barang Masuk</div>
                     </a>
                 </li>
                 <li class="menu-item <?= isActive('/reports/outgoing.php') ?>">
-                    <a href="/safety-stock/modules/reports/outgoing.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/reports/outgoing.php" class="menu-link">
                         <div data-i18n="Container">Barang Keluar</div>
                     </a>
                 </li>
                 <li class="menu-item <?= isActive('/reports/safety_stock.php') ?>">
-                    <a href="/safety-stock/modules/reports/safety_stock.php" class="menu-link">
+                    <a href="<?= $base_url ?>/modules/reports/safety_stock.php" class="menu-link">
                         <div data-i18n="Fluid">Baarang Kurang</div>
                     </a>
                 </li>
