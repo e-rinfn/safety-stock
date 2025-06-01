@@ -2,5 +2,7 @@
 require_once '../../config/auth.php';
 
 session_destroy();
-header("Location: /safety-stock/modules/auth/login.php");
+
+// Gunakan interpolasi variabel PHP secara benar
+header("Location: {$base_url}/modules/auth/login.php");
 exit();
