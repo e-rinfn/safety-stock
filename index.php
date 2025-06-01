@@ -32,7 +32,7 @@ checkLogin();
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row mb-4">
                             <!-- Total Products -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 p-3">
                                 <div class="card text-white bg-warning">
                                     <div class="card-body">
                                         <h5 class="card-title text-white">Total Produk</h5>
@@ -48,7 +48,7 @@ checkLogin();
                             </div>
 
                             <!-- Critical Stock -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 p-3">
                                 <div class="card text-white bg-primary">
                                     <div class="card-body">
                                         <h5 class="card-title text-white">Stok Kritis</h5>
@@ -65,7 +65,7 @@ checkLogin();
                             </div>
 
                             <!-- Recent Incoming -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 p-3">
                                 <div class="card text-white bg-success">
                                     <div class="card-body">
                                         <h5 class="card-title text-white">Barang Masuk (7 hari)</h5>
@@ -82,7 +82,7 @@ checkLogin();
                             </div>
 
                             <!-- Recent Outgoing -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 p-3">
                                 <div class="card text-white bg-info">
                                     <div class="card-body">
                                         <h5 class="card-title text-white">Barang Keluar (7 hari)</h5>
@@ -101,7 +101,7 @@ checkLogin();
 
                         <div class="row">
                             <!-- Critical Stock List -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-3">
                                 <div class="card">
                                     <div class="card-header bg-warning text-dark">
                                         <h5 class="text-white mb-0">Stok Kritis</h5>
@@ -170,7 +170,7 @@ checkLogin();
                             </div>
 
                             <!-- Recent Activities -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mt-3">
                                 <div class="card">
                                     <div class="card-header bg-primary text-white">
                                         <h5 class="text-white mb-0">Aktivitas Terakhir</h5>
