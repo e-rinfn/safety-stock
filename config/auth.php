@@ -8,16 +8,20 @@ function isLoggedIn()
 
 function checkLogin()
 {
+    global $base_url;
+
     if (!isLoggedIn()) {
-        header("Location: /safety-stock/modules/auth/login.php");
+        header("Location: {$base_url}/modules/auth/login.php");
         exit();
     }
 }
 
 function checkRole($required_role)
 {
-    if ($_SESSION['role'] !== $required_role) {
-        header("Location: /safety-stock/index.php");
+    global $base_url;
+
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== $required_role) {
+        header("Location: {$base_url}/index.php");
         exit();
     }
 }
