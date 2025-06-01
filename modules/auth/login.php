@@ -12,18 +12,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             WHERE username = '$username'";
     $result = $conn->query($sql);
 
-    if ($result->num_rows === 1) {
+    if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
-            redirect('/safety-stock/index.php');
+
+            // Pastikan $base_url didefinisikan sebelumnya
+            header("Location: {$base_url}/index.php");
+            exit();
         }
     }
 
     $error = "Invalid username or password";
 }
+
 ?>
 
 <?php include '../../includes/head.php'; ?>
@@ -32,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px;">
         <!-- Logo -->
         <div class="text-center mb-3">
-            <img src="/safety-stock/assets/img/Logo.png" alt="Logo" style="max-width: 120px;" class="img-fluid">
+            <img src="<?= $base_url ?>/assets/img/Logo.png" alt="Logo" style="max-width: 120px;" class="img-fluid">
         </div>
 
         <h2 class="mb-4 text-center">Login</h2>
