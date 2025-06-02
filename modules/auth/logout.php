@@ -1,5 +1,6 @@
 <?php
 require_once '../../config/auth.php';
+include_once '../../config/config.php';
 
 session_destroy();
 

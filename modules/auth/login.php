@@ -2,6 +2,7 @@
 require_once '../../config/database.php';
 require_once '../../config/auth.php';
 require_once '../../functions/helpers.php';
+include_once '../../config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = sanitizeInput($_POST['username']);
