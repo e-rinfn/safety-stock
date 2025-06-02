@@ -52,14 +52,17 @@ $result = $conn->query($sql);
                                 <table class="table table-bordered table-striped align-middle">
                                     <thead class="table-light">
                                         <tr>
+                                            <th style="width: 50px;">No</th>
                                             <th>Nama Kategori</th>
                                             <th>Deskripsi</th>
                                             <th style="width: 150px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $no = 1; ?>
                                         <?php while ($row = $result->fetch_assoc()): ?>
                                             <tr>
+                                                <td><?php echo $no++; ?></td>
                                                 <td><?php echo htmlspecialchars($row['category_name']); ?></td>
                                                 <td><?php echo htmlspecialchars($row['description'] ?? '-'); ?></td>
                                                 <td>
@@ -74,6 +77,7 @@ $result = $conn->query($sql);
                                         <?php endwhile; ?>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
 

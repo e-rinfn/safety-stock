@@ -50,14 +50,17 @@ $result = $conn->query($sql);
                                 <table class="table table-bordered table-striped align-middle">
                                     <thead class="table-light">
                                         <tr>
+                                            <th style="width: 50px;">No</th>
                                             <th>Nama Satuan</th>
                                             <th>Simbol</th>
                                             <th style="width: 150px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while ($row = $result->fetch_assoc()): ?>
+                                        <?php $no = 1;
+                                        while ($row = $result->fetch_assoc()): ?>
                                             <tr>
+                                                <td><?php echo $no++; ?></td>
                                                 <td><?php echo htmlspecialchars($row['unit_name']); ?></td>
                                                 <td><?php echo htmlspecialchars($row['unit_symbol']); ?></td>
                                                 <td>
@@ -72,6 +75,7 @@ $result = $conn->query($sql);
                                         <?php endwhile; ?>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                         <!-- / Isi Utama -->

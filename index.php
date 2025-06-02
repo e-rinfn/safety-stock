@@ -30,74 +30,103 @@ checkLogin();
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="row mb-4">
+                        <style>
+                            .accent-border-left {
+                                border-left: 5px solid #17a2b8;
+                                /* default info color */
+                            }
+
+                            .border-warning {
+                                border-left-color: #ffc107 !important;
+                            }
+
+                            .border-primary {
+                                border-left-color: #007bff !important;
+                            }
+
+                            .border-success {
+                                border-left-color: #28a745 !important;
+                            }
+
+                            .border-info {
+                                border-left-color: #17a2b8 !important;
+                            }
+
+                            .card-small {
+                                padding: 1rem;
+                                font-size: 0.9rem;
+                            }
+                        </style>
+
+                        <div class="row g-3">
                             <!-- Total Products -->
-                            <div class="col-md-3 p-3">
-                                <div class="card text-white bg-warning">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Total Produk</h5>
+                            <div class="col-md-3">
+                                <div class="card card-small accent-border-left border-warning shadow-sm">
+                                    <div class="card-body bg-white p-1">
+                                        <h6 class="card-title text-dark">Total Produk</h6>
                                         <?php
                                         $sql = "SELECT COUNT(*) as total FROM products WHERE is_active = 1";
                                         $result = $conn->query($sql);
                                         $total_products = $result->fetch_assoc()['total'];
                                         ?>
-                                        <h2 class="card-text"><?php echo $total_products; ?></h2>
-                                        <a href="modules/products/list.php" class="text-white">Lihat detail</a>
+                                        <h3 class="card-text text-dark fw-bold"><?php echo $total_products; ?></h3>
+                                        <a href="modules/products/list.php" class="text-decoration-none text-warning">Lihat detail</a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Critical Stock -->
-                            <div class="col-md-3 p-3">
-                                <div class="card text-white bg-primary">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Stok Kritis</h5>
+                            <div class="col-md-3">
+                                <div class="card card-small accent-border-left border-primary shadow-sm">
+                                    <div class="card-body bg-white p-1">
+                                        <h6 class="card-title text-dark">Stok Kritis</h6>
                                         <?php
                                         $sql = "SELECT COUNT(*) as critical FROM products 
-                            WHERE current_stock < safety_stock AND is_active = 1";
+                        WHERE current_stock < safety_stock AND is_active = 1";
                                         $result = $conn->query($sql);
                                         $critical_stock = $result->fetch_assoc()['critical'];
                                         ?>
-                                        <h2 class="card-text"><?php echo $critical_stock; ?></h2>
-                                        <a href="modules/stock/list.php" class="text-white">Lihat detail</a>
+                                        <h3 class="card-text text-dark fw-bold"><?php echo $critical_stock; ?></h3>
+                                        <a href="modules/stock/list.php" class="text-decoration-none text-primary">Lihat detail</a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Recent Incoming -->
-                            <div class="col-md-3 p-3">
-                                <div class="card text-white bg-success">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Barang Masuk (7 hari)</h5>
+                            <div class="col-md-3">
+                                <div class="card card-small accent-border-left border-success shadow-sm">
+                                    <div class="card-body bg-white p-1">
+                                        <h6 class="card-title text-dark">Barang Masuk (7 hari)</h6>
                                         <?php
                                         $sql = "SELECT COUNT(*) as incoming FROM product_incoming 
-                            WHERE transaction_date >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
+                        WHERE transaction_date >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
                                         $result = $conn->query($sql);
                                         $recent_incoming = $result->fetch_assoc()['incoming'];
                                         ?>
-                                        <h2 class="card-text"><?php echo $recent_incoming; ?></h2>
-                                        <a href="modules/incoming/list.php" class="text-white">Lihat detail</a>
+                                        <h3 class="card-text text-dark fw-bold"><?php echo $recent_incoming; ?></h3>
+                                        <a href="modules/incoming/list.php" class="text-decoration-none text-success">Lihat detail</a>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Recent Outgoing -->
-                            <div class="col-md-3 p-3">
-                                <div class="card text-white bg-info">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Barang Keluar (7 hari)</h5>
+                            <div class="col-md-3">
+                                <div class="card card-small accent-border-left border-info shadow-sm">
+                                    <div class="card-body bg-white p-1">
+                                        <h6 class="card-title text-dark">Barang Keluar (7 hari)</h6>
                                         <?php
                                         $sql = "SELECT COUNT(*) as outgoing FROM product_outgoing 
-                            WHERE transaction_date >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
+                        WHERE transaction_date >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
                                         $result = $conn->query($sql);
                                         $recent_outgoing = $result->fetch_assoc()['outgoing'];
                                         ?>
-                                        <h2 class="card-text"><?php echo $recent_outgoing; ?></h2>
-                                        <a href="modules/outgoing/list.php" class="text-white">Lihat detail</a>
+                                        <h3 class="card-text text-dark fw-bold"><?php echo $recent_outgoing; ?></h3>
+                                        <a href="modules/outgoing/list.php" class="text-decoration-none text-info">Lihat detail</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="row">
                             <!-- Critical Stock List -->
