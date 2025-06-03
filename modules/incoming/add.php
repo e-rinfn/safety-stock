@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <!-- Isi Utama -->
 
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h2>Tambah Barang Keluar</h2>
+                            <h2>Tambah Barang Masuk</h2>
                         </div>
                         <div class="card p-3">
                             <?php if (isset($error)): ?>
@@ -99,54 +99,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <?php endif; ?>
 
                             <form method="post">
-                                <div class="mb-3">
-                                    <label class="form-label">Tanggal Masuk</label>
-                                    <input type="datetime-local" name="transaction_date" class="form-control"
-                                        value="<?php echo date('Y-m-d\TH:i'); ?>" required>
+                                <div class="row g-3 align-items-end">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Tanggal Masuk</label>
+                                        <input type="datetime-local" name="transaction_date" class="form-control"
+                                            value="<?php echo date('Y-m-d\TH:i'); ?>" required>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label">Barang</label>
+                                        <select name="product_id" class="form-select" required>
+                                            <option value="">-- Pilih Barang --</option>
+                                            <?php while ($product = $products->fetch_assoc()): ?>
+                                                <option value="<?php echo $product['product_id']; ?>">
+                                                    <?php echo $product['product_name']; ?> (<?php echo $product['product_code']; ?>)
+                                                    - Stok: <?php echo $product['current_stock']; ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">Jumlah</label>
+                                        <input type="number" name="quantity" min="0.01" step="0.01" required class="form-control">
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">Supplier</label>
+                                        <select name="supplier_id" class="form-select">
+                                            <option value="">-- Pilih --</option>
+                                            <?php while ($supplier = $suppliers->fetch_assoc()): ?>
+                                                <option value="<?php echo $supplier['supplier_id']; ?>">
+                                                    <?php echo $supplier['supplier_name']; ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">Harga Beli (Rp)</label>
+                                        <input type="number" name="purchase_price" min="0" step="100" class="form-control">
+                                    </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Barang</label>
-                                    <select name="product_id" class="form-select" required>
-                                        <option value="">-- Pilih Barang --</option>
-                                        <?php while ($product = $products->fetch_assoc()): ?>
-                                            <option value="<?php echo $product['product_id']; ?>">
-                                                <?php echo $product['product_name']; ?> (<?php echo $product['product_code']; ?>)
-                                                - Stok: <?php echo $product['current_stock']; ?>
-                                            </option>
-                                        <?php endwhile; ?>
-                                    </select>
+                                <div class="row mt-3">
+                                    <div class="col-md-10">
+                                        <label class="form-label">Catatan</label>
+                                        <textarea name="notes" class="form-control" rows="2"></textarea>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button type="submit" class="btn btn-primary w-100">Simpan</button>
+                                    </div>
                                 </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah</label>
-                                    <input type="number" name="quantity" min="0.01" step="0.01" required class="form-control" style="max-width: 200px;">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Supplier</label>
-                                    <select name="supplier_id" class="form-select">
-                                        <option value="">-- Pilih Supplier --</option>
-                                        <?php while ($supplier = $suppliers->fetch_assoc()): ?>
-                                            <option value="<?php echo $supplier['supplier_id']; ?>">
-                                                <?php echo $supplier['supplier_name']; ?>
-                                            </option>
-                                        <?php endwhile; ?>
-                                    </select>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Harga Beli (Rp)</label>
-                                    <input type="number" name="purchase_price" min="0" step="100" class="form-control" style="max-width: 200px;">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Catatan</label>
-                                    <textarea name="notes" class="form-control" rows="3"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </form>
+
                         </div>
 
                         <!-- / Isi Utama -->

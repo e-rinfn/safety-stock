@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <label for="description" class="form-label">Deskripsi</label>
                                     <textarea class="form-control" name="description" id="description" rows="4"><?php echo $category['description']; ?></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </form>
                         </div>
 

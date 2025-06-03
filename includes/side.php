@@ -128,7 +128,7 @@ function isActive($path)
                 </li>
                 <li class="menu-item <?= isActive('/reports/safety_stock.php') ?>">
                     <a href="<?= $base_url ?>/modules/reports/safety_stock.php" class="menu-link">
-                        <div data-i18n="Fluid">Baarang Kurang</div>
+                        <div data-i18n="Fluid">Barang Kurang</div>
                     </a>
                 </li>
             </ul>

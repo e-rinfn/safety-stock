@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <!-- Isi Utama -->
 
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h2>Edit Data Kategori</h2>
+                            <h2>Edit Data Produk</h2>
                         </div>
                         <div class="card p-3">
                             <?php if (isset($error)): ?>

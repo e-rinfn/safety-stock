@@ -42,65 +42,133 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php include __DIR__ . '../../../includes/header.php'; ?>
+<?php include __DIR__ . '../../../includes/head.php'; ?>
 
-<h2>Tambah Pengguna Baru</h2>
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
 
-<?php if ($error): ?>
-    <p style="color: red;"><?php echo $error; ?></p>
-<?php endif; ?>
+            <?php include __DIR__ . '../../../includes/side.php'; ?>
 
-<?php if ($success): ?>
-    <p style="color: green;"><?php echo $success; ?></p>
-<?php endif; ?>
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
 
-<form method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username" value="<?php echo $_POST['username'] ?? ''; ?>" required>
-    </div>
+                <?php include __DIR__ . '../../../includes/nav.php'; ?>
 
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password" required>
-    </div>
+                <!-- / Navbar -->
 
-    <div>
-        <label>Nama Lengkap:</label>
-        <input type="text" name="full_name" value="<?php echo $_POST['full_name'] ?? ''; ?>" required>
-    </div>
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
 
-    <div>
-        <label>Email:</label>
-        <input type="email" name="email" value="<?php echo $_POST['email'] ?? ''; ?>">
-    </div>
+                    <div class="container-xxl flex-grow-1 container-p-y">
 
-    <div>
-        <label>Telepon:</label>
-        <input type="text" name="phone" value="<?php echo $_POST['phone'] ?? ''; ?>">
-    </div>
+                        <!-- Isi Utama -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2>Tambah Data Pengguna</h2>
+                        </div>
 
-    <div>
-        <label>Role:</label>
-        <select name="role_id" required>
-            <option value="">Pilih Role</option>
-            <?php while ($role = $roles_result->fetch_assoc()): ?>
-                <option value="<?php echo $role['role_id']; ?>" <?php echo (isset($_POST['role_id']) && $_POST['role_id'] == $role['role_id']) ? 'selected' : ''; ?>>
-                    <?php echo htmlspecialchars($role['role_name']); ?>
-                </option>
-            <?php endwhile; ?>
-        </select>
-    </div>
+                        <div class="card p-4">
+                            <?php if (!empty($error)): ?>
+                                <div class="alert alert-danger"><?php echo $error; ?></div>
+                            <?php endif; ?>
 
-    <div>
-        <label>
-            <input type="checkbox" name="is_active" <?php echo isset($_POST['is_active']) ? 'checked' : 'checked'; ?>>
-            Aktif
-        </label>
-    </div>
+                            <?php if (!empty($success)): ?>
+                                <div class="alert alert-success"><?php echo $success; ?></div>
+                            <?php endif; ?>
 
-    <button type="submit">Simpan</button>
-    <a href="list.php">Kembali</a>
-</form>
+                            <form method="post">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Username:</label>
+                                        <input type="text" name="username" class="form-control" value="<?php echo $_POST['username'] ?? ''; ?>" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Password:</label>
+                                        <input type="password" name="password" class="form-control" required>
+                                    </div>
+                                </div>
 
-<?php include __DIR__ . '../../../includes/footer.php'; ?>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Nama Lengkap:</label>
+                                        <input type="text" name="full_name" class="form-control" value="<?php echo $_POST['full_name'] ?? ''; ?>" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email:</label>
+                                        <input type="email" name="email" class="form-control" value="<?php echo $_POST['email'] ?? ''; ?>">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Telepon:</label>
+                                        <input type="text" name="phone" class="form-control" value="<?php echo $_POST['phone'] ?? ''; ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Role:</label>
+                                        <select name="role_id" class="form-select" required>
+                                            <option value="">Pilih Role</option>
+                                            <?php while ($role = $roles_result->fetch_assoc()): ?>
+                                                <option value="<?php echo $role['role_id']; ?>" <?php echo (isset($_POST['role_id']) && $_POST['role_id'] == $role['role_id']) ? 'selected' : ''; ?>>
+                                                    <?php echo htmlspecialchars($role['role_name']); ?>
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" name="is_active" class="form-check-input" id="is_active" <?php echo isset($_POST['is_active']) ? 'checked' : 'checked'; ?>>
+                                    <label class="form-check-label" for="is_active">Aktif</label>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary me-2">Simpan</button>
+                                    <a href="list.php" class="btn btn-secondary">Kembali</a>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <!-- / Isi Utama -->
+
+                        <div class="content-backdrop fade"></div>
+                    </div>
+
+                    <!-- Content wrapper -->
+                </div>
+                <!-- / Layout page -->
+            </div>
+
+            <!-- Overlay -->
+            <div class="layout-overlay layout-menu-toggle"></div>
+        </div>
+        <!-- / Layout wrapper -->
+
+
+        <!-- Core JS -->
+        <!-- build:js assets/vendor/js/core.js -->
+        <?php include __DIR__ . '../../../includes/footer.php'; ?>
+
+        <script>
+            (() => {
+                'use strict';
+                const forms = document.querySelectorAll('.needs-validation');
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            })();
+        </script>
+
+</body>
+
+</html>

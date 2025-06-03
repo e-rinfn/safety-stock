@@ -80,49 +80,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <?php endif; ?>
 
                             <form method="post">
-                                <div class="mb-3">
-                                    <label class="form-label">Tanggal</label>
-                                    <input type="datetime-local" name="transaction_date" class="form-control" value="<?php echo date('Y-m-d\TH:i'); ?>">
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Tanggal</label>
+                                        <input type="datetime-local" name="transaction_date" class="form-control"
+                                            value="<?php echo date('Y-m-d\TH:i'); ?>">
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Barang</label>
+                                        <select name="product_id" class="form-select" required>
+                                            <option value="">Pilih Barang</option>
+                                            <?php while ($row = $products->fetch_assoc()): ?>
+                                                <option value="<?php echo $row['product_id']; ?>">
+                                                    <?php echo $row['product_name']; ?> (Stok: <?php echo $row['current_stock']; ?>)
+                                                </option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Jumlah</label>
+                                        <input type="number" name="quantity" class="form-control" min="0.01" step="0.01" required>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Jenis Tujuan</label>
+                                        <select name="type_id" class="form-select" required>
+                                            <?php while ($row = $types->fetch_assoc()): ?>
+                                                <option value="<?php echo $row['type_id']; ?>"><?php echo $row['type_name']; ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Keterangan Tujuan</label>
+                                        <input type="text" name="destination" class="form-control">
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Catatan</label>
+                                        <textarea name="notes" class="form-control" rows="3"></textarea>
+                                    </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Barang</label>
-                                    <select name="product_id" class="form-select" required>
-                                        <option value="">Pilih Barang</option>
-                                        <?php while ($row = $products->fetch_assoc()): ?>
-                                            <option value="<?php echo $row['product_id']; ?>">
-                                                <?php echo $row['product_name']; ?> (Stok: <?php echo $row['current_stock']; ?>)
-                                            </option>
-                                        <?php endwhile; ?>
-                                    </select>
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Jumlah</label>
-                                    <input type="number" name="quantity" class="form-control" min="0.01" step="0.01" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Jenis Tujuan</label>
-                                    <select name="type_id" class="form-select" required>
-                                        <?php while ($row = $types->fetch_assoc()): ?>
-                                            <option value="<?php echo $row['type_id']; ?>"><?php echo $row['type_name']; ?></option>
-                                        <?php endwhile; ?>
-                                    </select>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Keterangan Tujuan</label>
-                                    <input type="text" name="destination" class="form-control">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Catatan</label>
-                                    <textarea name="notes" class="form-control" rows="3"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </form>
+
                         </div>
 
                         <!-- / Isi Utama -->

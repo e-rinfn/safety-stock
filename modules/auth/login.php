@@ -8,28 +8,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = sanitizeInput($_POST['username']);
     $password = sanitizeInput($_POST['password']);
 
-    $sql = "SELECT user_id, username, password, role_name as role FROM users 
+    $sql = "SELECT user_id, username, password, is_active, role_name as role 
+            FROM users 
             JOIN roles ON users.role_id = roles.role_id 
             WHERE username = '$username'";
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password'])) {
+
+        if (!$user['is_active']) {
+            $error = "Akun Anda tidak aktif. Silakan hubungi administrator.";
+        } elseif (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
-            // Pastikan $base_url didefinisikan sebelumnya
             header("Location: {$base_url}/index.php");
             exit();
+        } else {
+            $error = "Password salah.";
         }
+    } else {
+        $error = "Username tidak ditemukan.";
     }
-
-    $error = "Invalid username or password";
 }
-
 ?>
+
 
 <?php include '../../includes/head.php'; ?>
 
