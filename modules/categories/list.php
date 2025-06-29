@@ -51,7 +51,7 @@ $result = $conn->query($sql);
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped align-middle">
                                     <thead class="table-light">
-                                        <tr>
+                                        <tr class="text-center">
                                             <th style="width: 50px;">No</th>
                                             <th>Nama Kategori</th>
                                             <th>Deskripsi</th>

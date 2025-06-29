@@ -46,7 +46,7 @@ $suppliers = $conn->query("SELECT * FROM suppliers ORDER BY created_at DESC");
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover align-middle">
                                     <thead class="table-light">
-                                        <tr>
+                                        <tr class="text-center">
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Kontak</th>

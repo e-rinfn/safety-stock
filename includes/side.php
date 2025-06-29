@@ -47,40 +47,43 @@ function isActive($path)
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Halaman</span>
         </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Master Data</div>
-            </a>
+        <?php if ($_SESSION['role'] === 'Admin') : ?>
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-layout"></i>
+                    <div data-i18n="Layouts">Master Data</div>
+                </a>
 
-            <ul class="menu-sub">
-                <li class="menu-item <?= isActive('/products') ?>">
-                    <a href="<?= $base_url ?>/modules/products/list.php" class="menu-link">
-                        <div data-i18n="Without menu">Produk</div>
-                    </a>
-                </li>
-                <li class="menu-item <?= isActive('/categories') ?>">
-                    <a href="<?= $base_url ?>/modules/categories/list.php" class="menu-link">
-                        <div data-i18n="Without navbar">Kategori</div>
-                    </a>
-                </li>
-                <li class="menu-item <?= isActive('/units') ?>">
-                    <a href="<?= $base_url ?>/modules/units/list.php" class="menu-link">
-                        <div data-i18n="Container">Satuan</div>
-                    </a>
-                </li>
-                <li class="menu-item <?= isActive('/locations') ?>">
-                    <a href="<?= $base_url ?>/modules/locations/list.php" class="menu-link">
-                        <div data-i18n="Fluid">Lokasi</div>
-                    </a>
-                </li>
-                <li class="menu-item <?= isActive('/supplier') ?>">
-                    <a href="<?= $base_url ?>/modules/supplier/list.php" class="menu-link">
-                        <div data-i18n="Blank">Supplier</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
+                <ul class="menu-sub">
+                    <li class="menu-item <?= isActive('/products') ?>">
+                        <a href="<?= $base_url ?>/modules/products/list.php" class="menu-link">
+                            <div data-i18n="Without menu">Produk</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= isActive('/categories') ?>">
+                        <a href="<?= $base_url ?>/modules/categories/list.php" class="menu-link">
+                            <div data-i18n="Without navbar">Kategori</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= isActive('/units') ?>">
+                        <a href="<?= $base_url ?>/modules/units/list.php" class="menu-link">
+                            <div data-i18n="Container">Satuan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= isActive('/locations') ?>">
+                        <a href="<?= $base_url ?>/modules/locations/list.php" class="menu-link">
+                            <div data-i18n="Fluid">Lokasi</div>
+                        </a>
+                    </li>
+                    <li class="menu-item <?= isActive('/supplier') ?>">
+                        <a href="<?= $base_url ?>/modules/supplier/list.php" class="menu-link">
+                            <div data-i18n="Blank">Supplier</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif; ?>
+
         <!-- Components -->
 
         <li class="menu-item <?= isActive('/stock') ?>">

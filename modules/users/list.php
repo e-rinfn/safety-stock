@@ -5,7 +5,7 @@ require_once __DIR__ . '../../../functions/helpers.php';
 include_once __DIR__ . '../../../config/config.php';
 
 checkLogin();
-// checkRole('Admin'); // Hanya admin yang bisa akses
+checkRole('Admin'); // Hanya admin yang bisa akses
 
 // Query untuk mendapatkan daftar user dengan role
 $sql = "SELECT u.user_id, u.username, u.full_name, u.email, u.is_active, r.role_name 
@@ -54,7 +54,7 @@ $result = $conn->query($sql);
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover align-middle">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th>No</th>
                                             <th>Username</th>
                                             <th>Nama Lengkap</th>

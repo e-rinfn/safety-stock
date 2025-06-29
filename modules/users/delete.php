@@ -4,7 +4,7 @@ require_once __DIR__ . '../../../config/auth.php';
 require_once __DIR__ . '../../../functions/helpers.php';
 
 checkLogin();
-// checkRole('admin');
+checkRole('Admin'); // Hanya admin yang bisa akses
 
 if (!isset($_GET['id'])) {
     redirect('list.php');

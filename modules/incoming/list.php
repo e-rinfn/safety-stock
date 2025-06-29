@@ -241,7 +241,7 @@ $users = $conn->query("SELECT * FROM users WHERE is_active = 1 ORDER BY username
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo formatDate($row['transaction_date']); ?></td>
                                                     <td><?php echo htmlspecialchars($row['product_name']); ?></td>
-                                                    <td><?php echo number_format($row['quantity'], 0); ?></td>
+                                                    <td class="text-center"><?php echo number_format($row['quantity'], 0); ?></td>
                                                     <td><?php echo htmlspecialchars($row['supplier_name'] ?? '-'); ?></td>
                                                     <td><?php echo $row['purchase_price'] ? 'Rp ' . number_format($row['purchase_price'], 2) : '-'; ?></td>
                                                     <td><?php echo htmlspecialchars($row['username']); ?></td>

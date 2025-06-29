@@ -4,7 +4,7 @@ require_once __DIR__ . '../../../config/auth.php';
 require_once __DIR__ . '../../../functions/helpers.php';
 
 checkLogin();
-// checkRole('Admin');
+checkRole('Admin'); // Hanya admin yang bisa akses
 
 // Ambil daftar role untuk dropdown
 $roles_sql = "SELECT * FROM roles";

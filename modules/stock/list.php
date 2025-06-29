@@ -199,8 +199,8 @@ $locations = $conn->query("SELECT * FROM storage_locations WHERE is_active = 1")
                                                     <td><?php echo htmlspecialchars($row['product_code']); ?></td>
                                                     <td><?php echo htmlspecialchars($row['product_name']); ?></td>
                                                     <td><?php echo htmlspecialchars($row['category_name'] ?? '-'); ?></td>
-                                                    <td><?php echo number_format($row['current_stock'], 0); ?></td>
-                                                    <td><?php echo number_format($row['safety_stock'], 0); ?></td>
+                                                    <td class="text-center"><?php echo number_format($row['current_stock'], 0); ?></td>
+                                                    <td class="text-center"><?php echo number_format($row['safety_stock'], 0); ?></td>
                                                     <td><?php echo htmlspecialchars($row['unit_name']); ?></td>
                                                     <td><?php echo htmlspecialchars($row['location_name'] ?? '-'); ?></td>
                                                 </tr>

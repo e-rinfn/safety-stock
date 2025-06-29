@@ -20,6 +20,7 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
+
                             <li>
                                 <a class="dropdown-item" href="#">
                                     <div class="d-flex">
@@ -29,27 +30,30 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <span class="fw-semibold d-block">Sukma</span>
-                                            <small class="text-muted">Admin</small>
+                                            <span class="fw-semibold d-block"><?= $_SESSION['username'] ?></span>
+                                            <small class="text-muted"><?= $_SESSION['role'] ?></small>
                                         </div>
+
                                     </div>
                                 </a>
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a class="dropdown-item" href="#">
                                     <i class="bx bx-user me-2"></i>
                                     <span class="align-middle">My Profile</span>
                                 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?= $base_url ?>/modules/users/list.php">
-                                    <i class="bx bx-user me-2"></i>
-                                    <span class="align-middle">Daftar Pengguna</span>
-                                </a>
-                            </li>
+                            </li> -->
+                            <?php if ($_SESSION['role'] === 'Admin') : ?>
+                                <li>
+                                    <a class="dropdown-item" href="<?= $base_url ?>/modules/users/list.php">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle">Daftar Pengguna</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
                             <li>
                                 <div class="dropdown-divider"></div>
                             </li>
